@@ -11,5 +11,16 @@ export default defineConfig({
     alias: {
       '@': path.resolve(__dirname, './src')
     }
+  },
+  // 自动导入项目中的`less变量`和`mixins`
+  css: {
+    preprocessorOptions: {
+      less: {
+        additionalData: `
+          @import "@/assets/styles/variables.less";
+          @import "@/assets/styles/mixins.less";
+        `
+      }
+    }
   }
 })
